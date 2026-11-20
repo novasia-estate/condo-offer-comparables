@@ -1,0 +1,32 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.github.novasia-estate</groupId>
+  <artifactId>condo-offer-comparables</artifactId>
+  <version>1.0.0</version>
+  <name>Condo Offer Comparables</name>
+  <description>Compare dated condo asking prices under matching area definitions and sale stages.</description>
+  <url>https://novasia.estate/en/cambodia/property-insights/phnom-penh-condo-asking-prices/</url>
+  <licenses><license><name>MIT License</name><url>https://opensource.org/license/mit/</url></license></licenses>
+  <scm><url>https://github.com/novasia-estate/condo-offer-comparables</url></scm>
+  <properties>
+    <maven.compiler.release>17</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <build><plugins>
+    <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-compiler-plugin</artifactId><version>3.13.0</version></plugin>
+    <plugin>
+      <groupId>org.codehaus.mojo</groupId><artifactId>exec-maven-plugin</artifactId><version>3.1.0</version>
+      <executions><execution><id>evidence-boundary-checks</id><phase>test</phase><goals><goal>java</goal></goals>
+        <configuration><mainClass>estate.novasia.comps.OfferComparisonChecks</mainClass><classpathScope>test</classpathScope></configuration>
+      </execution></executions>
+    </plugin>
+    <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-source-plugin</artifactId><version>3.3.0</version>
+      <executions><execution><goals><goal>jar-no-fork</goal></goals></execution></executions>
+    </plugin>
+    <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-javadoc-plugin</artifactId><version>3.6.3</version>
+      <configuration><doclint>none</doclint></configuration>
+      <executions><execution><goals><goal>jar</goal></goals></execution></executions>
+    </plugin>
+  </plugins></build>
+</project>
